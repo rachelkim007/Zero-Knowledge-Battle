@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Contract } from 'ethers';
 import { useAccount, usePublicClient } from 'wagmi';
-import { isAddress, zeroAddress } from 'viem';
+import { isAddress } from 'viem';
 
 import { AttributeAllocator } from './AttributeAllocator';
 import { Header } from './Header';
@@ -67,11 +67,11 @@ export function BattleApp() {
   const remainingPoints = Math.max(0, MAX_POINTS - totalPoints);
 
   const battleAddressValid = useMemo(() => {
-    return isAddress(ZERO_KNOWLEDGE_BATTLE_ADDRESS) && ZERO_KNOWLEDGE_BATTLE_ADDRESS !== zeroAddress;
+    return isAddress(ZERO_KNOWLEDGE_BATTLE_ADDRESS) ;
   }, []);
 
   const goldAddressValid = useMemo(() => {
-    return isAddress(CONFIDENTIAL_GOLD_ADDRESS) && CONFIDENTIAL_GOLD_ADDRESS !== zeroAddress;
+    return isAddress(CONFIDENTIAL_GOLD_ADDRESS);
   }, []);
 
   const canInteract = battleAddressValid && goldAddressValid && !!publicClient;
