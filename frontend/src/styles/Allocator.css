@@ -1,0 +1,123 @@
+.allocator-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 16px 40px -24px rgba(15, 23, 42, 0.45);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.allocator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.allocator-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.allocator-subtitle {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.allocator-remaining {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  background-color: #eef2ff;
+  color: #3730a3;
+  white-space: nowrap;
+}
+
+.allocator-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.allocator-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8fafc;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+}
+
+.allocator-row-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.allocator-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.allocator-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.allocator-input {
+  width: 4rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid #cbd5f5;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #1e293b;
+}
+
+.allocator-button {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 9999px;
+  border: none;
+  background-color: #312e81;
+  color: #ffffff;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+}
+
+.allocator-button:disabled {
+  background-color: #cbd5f5;
+  cursor: not-allowed;
+  color: #475569;
+}
+
+.allocator-button:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px -10px rgba(49, 46, 129, 0.6);
+}
+
+@media (max-width: 640px) {
+  .allocator-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .allocator-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
