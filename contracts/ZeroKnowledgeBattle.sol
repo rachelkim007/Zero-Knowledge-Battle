@@ -2,11 +2,11 @@
 pragma solidity ^0.8.27;
 
 import {FHE, ebool, euint16, euint32, euint64, externalEuint16} from "@fhevm/solidity/lib/FHE.sol";
-import {SepoliaConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
+import {ZamaEthereumConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
 
 import {ConfidentialGold} from "./ConfidentialGold.sol";
 
-contract ZeroKnowledgeBattle is SepoliaConfig {
+contract ZeroKnowledgeBattle is ZamaEthereumConfig {
     struct PlayerData {
         bool registered;
         euint16 attack;
@@ -41,7 +41,7 @@ contract ZeroKnowledgeBattle is SepoliaConfig {
     error ZeroKnowledgeBattleInactiveMonster(uint256 monsterId);
     error ZeroKnowledgeBattleNotRegistered(address player);
 
-    constructor(address rewardTokenAddress) SepoliaConfig() {
+    constructor(address rewardTokenAddress)  {
         rewardToken = ConfidentialGold(rewardTokenAddress);
 
         _monsters.push(Monster("Forest Imp", 2, 1, 5, 2, true));

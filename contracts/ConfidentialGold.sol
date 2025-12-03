@@ -3,17 +3,17 @@ pragma solidity ^0.8.27;
 
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {FHE, euint64} from "@fhevm/solidity/lib/FHE.sol";
-import {ConfidentialFungibleToken} from "new-confidential-contracts/token/ConfidentialFungibleToken.sol";
-import {SepoliaConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
+import {ERC7984} from "confidential-contracts-v91/contracts/token/ERC7984/ERC7984.sol";
+import {ZamaEthereumConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
 
-contract ConfidentialGold is ConfidentialFungibleToken, SepoliaConfig, Ownable {
+contract ConfidentialGold is ERC7984, ZamaEthereumConfig, Ownable {
     address private _battleContract;
 
     event BattleContractUpdated(address indexed previousBattleContract, address indexed newBattleContract);
 
     error ConfidentialGoldUnauthorizedMinter(address caller);
 
-    constructor() ConfidentialFungibleToken("cGold", "cGOLD", "") SepoliaConfig() Ownable(msg.sender) {}
+    constructor() ERC7984("cGold", "cGOLD", "") Ownable(msg.sender) {}
 
     function battleContract() external view returns (address) {
         return _battleContract;
